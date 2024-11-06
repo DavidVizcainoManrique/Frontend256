@@ -49,7 +49,7 @@ function guardarServicios(){
     let dirr = document.getElementById('direccion-d').value
     let fech = document.getElementById('fecha-f').value
 
-    let data = {'servicio':ser, 'area':are, 'unidad':uni, 'precio':pre, 'producto':pro, 'idservicio':ids, 'direccion':dirr,'fecha':fech}
+    let data = {'tipoServicio':ser, 'area':are, 'unidadArea':uni, 'precio':pre, 'producto':pro, 'idServicio':ids, 'dirServicio':dirr,'fechaServicio':fech}
     let request = sendRequest('servicios/', 'POST', data);
     request.onload = function(){
         window.location='servicios.html'
@@ -60,6 +60,7 @@ function guardarServicios(){
 }
 
 function cargarDatos(id){
+    console.log('id', id)
     let request = sendRequest('servicios/'+id, 'GET', '');
     let ser = document.getElementById('servicio-s')
     let are = document.getElementById('area-a')
@@ -72,16 +73,16 @@ function cargarDatos(id){
 
     request.onload = function(){
         let data = request.response;
-        ser.value = data.servicio
+        ser.value = data.tipoServicio
         are.value = data.area
-        uni.value = data.unidad
+        uni.value = data.unidadArea
         pre.value = data.precio
         pro.value = data.producto
-        ids.value = data.idservicio
-        dirr.value = data.direccion
-        fech.value = data.fecha
+        ids.value = data.idServicio
+        dirr.value = data.dirServicio
+        fech.value = data.fechaServicio
 
-        console.log(data)
+        console.log("pepe",data)
     }
     request.onerror = function () {
         console.log("Error al cargar datos")        
@@ -98,7 +99,7 @@ function modificarServicios(id){
     let dirr = document.getElementById('direccion-d').value
     let fech = document.getElementById('fecha-f').value
 
-    let data = {'servicio':ser, 'area':are, 'unidad':uni, 'precio':pre, 'producto':pro, 'idservicio':ids, 'direccion':dirr,'fecha':fech}
+    let data = {'tipoServicio':ser, 'area':are, 'unidadArea':uni, 'precio':pre, 'producto':pro, 'idServicio':ids, 'dirServicio':dirr,'fechaServicio':fech}
     let request = sendRequest('servicios/'+id, 'PUT', data);
     console.log(request)
     request.onload = function(){

@@ -55,6 +55,7 @@ function guardarClientes(){
 }
 
 function cargarDatos(id){
+    console.log('id', id)
     let request = sendRequest('clientes/'+id, 'GET', '');
     let nom = document.getElementById('nombres-n')
     let ape = document.getElementById('apellidos-a')

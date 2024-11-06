@@ -40,7 +40,7 @@
 
                 <div class="mb-3">
                     <label for="servicio" class="form-label">Tipo servicio</label>
-                    <input type="text" class="form-control" name="servicios-s" id="servicios-s">
+                    <input type="text" class="form-control" name="servicio-s" id="servicio-s">
                 </div>
                 <div class="mb-3">
                     <label for="area class="form-label">Area</label>
@@ -85,6 +85,7 @@
         window.onload = function () {
             let boton = document.getElementById('btn-editar');
             const url = new URLSearchParams(window.location.search);
+            console.log(url.get('id'),'pepe')
             cargarDatos(url.get('id'));
             boton.onclick = () => {
                 modificarServicios(url.get('id'));
